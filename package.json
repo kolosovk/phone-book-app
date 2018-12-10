@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "style": "stylus -w ./src/style/index.styl -o ./src/style/index.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
