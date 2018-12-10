@@ -1,4 +1,21 @@
 body {
   margin: 0;
   position: relative;
+  background-color: #a8c9ff;
+}
+body div.App {
+  margin: 0 auto;
+  background-color: #fff;
+  width: 80vw;
+  height: 100vh;
+  padding: 10px 30px;
+}
+body div.App .addContactModal {
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
 }

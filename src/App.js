@@ -4,7 +4,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Test</p>
+        <button className="addContactModal">Add new contact</button>
       </div>
     );
   }
