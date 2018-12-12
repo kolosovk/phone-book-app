@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import Modal from "./components/modal";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import allReducers from "./reducers";
+
+const store = createStore(allReducers);
 
 class App extends Component {
   state = {
@@ -13,15 +18,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <button className="addContactModal" onClick={this.toggleModal}>
-          Add new contact
-        </button>
-        <Modal
-          toggleModal={this.toggleModal}
-          showModal={this.state.showModal}
-        />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <button className="addContactModal" onClick={this.toggleModal}>
+            Add new contact
+          </button>
+          <Modal
+            toggleModal={this.toggleModal}
+            showModal={this.state.showModal}
+          />
+        </div>
+      </Provider>
     );
   }
 }
