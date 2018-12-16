@@ -1,48 +1,3 @@
-.createContact {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  transition: 0.3s;
-  opacity: 0;
-  visibility: hidden;
-}
-.createContact.open {
-  transition: 0.3s;
-  opacity: 1;
-  visibility: visible;
-}
-.createContact .wrapper {
-  width: 300px;
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #fff;
-}
-.createContact .wrapper input,
-.createContact .wrapper button {
-  margin: 10px 0;
-}
-.createContact .wrapper .closeModal {
-  cursor: pointer;
-  font-size: 30px;
-  transform: rotate(45deg);
-  color: #f49898;
-  outline: 0;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: 0;
-  background: transparent;
-}
 div.List .formToNew,
 div.List .formToSearch {
   display: flex;
@@ -85,6 +40,18 @@ div.List .singleContact .avatarPlaceholder {
 }
 div.List .singleContact .avatarPlaceholder .avatar {
   height: 70px;
+}
+div.List .singleContact .delButton {
+  position: absolute;
+  height: 30px;
+  top: 0;
+  right: 0;
+  text-transform: uppercase;
+  color: #ba0000;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i");
 body {

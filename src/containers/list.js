@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Modal from "../components/modal";
 
 class List extends Component {
   state = {
@@ -109,19 +108,20 @@ class List extends Component {
         {this.props.contacts.map(id => (
           <ul className="singleContact" key={id.phone}>
             <li className="avatarPlaceholder">
-              <img src={id.photo} className="avatar" />
+              <img src={id.photo} alt="contact avatar" className="avatar" />
             </li>
             <li>Phone number: {id.phone}</li>
             <li>Name: {id.name}</li>
             <li>Company: {id.company}</li>
             <li>E-mail: {id.email}</li>
-            <button onClick={() => this.delContact(id.phone)}>del</button>
+            <button
+              className="delButton"
+              onClick={() => this.delContact(id.phone)}
+            >
+              Delete this contact
+            </button>
           </ul>
         ))}
-        <Modal
-          toggleModal={this.toggleModal}
-          showModal={this.state.showModal}
-        />
       </div>
     );
   }
