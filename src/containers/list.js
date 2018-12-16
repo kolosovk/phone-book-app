@@ -31,6 +31,11 @@ class List extends Component {
     this.props.onFindContact(this.searchInput.value);
   }
 
+  delContact = id => {
+    console.log(id);
+    this.props.onDeleteContact(id);
+  };
+
   render() {
     return (
       <div className="List">
@@ -101,15 +106,16 @@ class List extends Component {
             Find contact
           </button>
         </div>
-        {this.props.contacts.map(phone => (
-          <ul className="singleContact" key={phone}>
+        {this.props.contacts.map(id => (
+          <ul className="singleContact" key={id.phone}>
             <li className="avatarPlaceholder">
-              <img src={phone.photo} className="avatar" />
+              <img src={id.photo} className="avatar" />
             </li>
-            <li>Phone number: {phone.phone}</li>
-            <li>Name: {phone.name}</li>
-            <li>Company: {phone.company}</li>
-            <li>E-mail: {phone.email}</li>
+            <li>Phone number: {id.phone}</li>
+            <li>Name: {id.name}</li>
+            <li>Company: {id.company}</li>
+            <li>E-mail: {id.email}</li>
+            <button onClick={() => this.delContact(id.phone)}>del</button>
           </ul>
         ))}
         <Modal
@@ -133,6 +139,9 @@ export default connect(
     },
     onFindContact: item => {
       dispatch({ type: "FIND_CONTACT", payload: item });
+    },
+    onDeleteContact: contact => {
+      dispatch({ type: "DELETE_CONTACT", payload: contact });
     }
   })
 )(List);

@@ -25,6 +25,8 @@ const initialState = [
 export default function phonebook(state = initialState, action) {
   if (action.type === "ADD_NEW_CONTACT") {
     return [...state, action.payload];
+  } else if (action.type === "DELETE_CONTACT") {
+    return state.filter(({ phone }) => phone !== action.payload);
   }
   return state;
 }
