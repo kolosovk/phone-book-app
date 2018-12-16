@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 class List extends Component {
   state = {
-    showModal: false
+    showMenu: false
   };
 
   addContact() {
@@ -19,10 +19,11 @@ class List extends Component {
     this.companyInput.value = "";
     this.emailInput.value = "";
     this.photoInput.value = "";
+    this.setState({ showMenu: !this.state.showMenu });
   }
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
+  toggleMenu = () => {
+    this.setState({ showMenu: !this.state.showMenu });
   };
 
   findContact() {
@@ -38,10 +39,13 @@ class List extends Component {
   render() {
     return (
       <div className="List">
-        {/* <button className="addContactModal" onClick={this.toggleModal}>
-          Add new contact
-        </button> */}
-        <div className="formToNew">
+        <button
+          className={`addContact ${this.state.showMenu ? "close" : ""}`}
+          onClick={this.toggleMenu}
+        >
+          Click to add new contact
+        </button>
+        <div className={`formToNew ${this.state.showMenu ? "open" : ""}`}>
           <input
             type="text"
             ref={input => {
@@ -83,7 +87,7 @@ class List extends Component {
             placeholder="Url for photo"
           />
           <button
-            className="addContactModal"
+            className="formToNewButton"
             onClick={this.addContact.bind(this)}
           >
             Add new contact

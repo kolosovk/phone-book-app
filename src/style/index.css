@@ -1,12 +1,49 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya:400,400i");
-div.List .formToNew,
+div.List .addContact {
+  display: flex;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 50%;
+}
+div.List .addContact.close {
+  display: none;
+}
+div.List .formToNew {
+  display: none;
+}
+div.List .formToNew.open {
+  display: flex;
+  flex-direction: column;
+}
+div.List .formToNew .formToNewInput {
+  margin: 10px auto;
+  width: 50%;
+  border-radius: 20px;
+  padding: 10px;
+  outline: none;
+}
+div.List .formToNew .formToNewButton {
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 10px auto;
+  width: 50%;
+}
 div.List .formToSearch {
   display: flex;
   flex-direction: column;
 }
-div.List .formToNew .formToNewInput,
 div.List .formToSearch .formToNewInput,
-div.List .formToNew .formToSearchInput,
 div.List .formToSearch .formToSearchInput {
   margin: 10px auto;
   width: 50%;
@@ -14,11 +51,8 @@ div.List .formToSearch .formToSearchInput {
   padding: 10px;
   outline: none;
 }
-div.List .formToNew .addContactModal,
 div.List .formToSearch .addContactModal,
-div.List .formToNew .formToNewButton,
 div.List .formToSearch .formToNewButton,
-div.List .formToNew .formToSearchButton,
 div.List .formToSearch .formToSearchButton {
   outline: none;
   border: 0;
