@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:400,400i");
 div.List .formToNew,
 div.List .formToSearch {
   display: flex;
@@ -33,13 +34,16 @@ div.List .singleContact {
   border: 1px solid #008000;
   list-style: none;
   position: relative;
+  overflow: hidden;
 }
 div.List .singleContact .avatarPlaceholder {
   position: relative;
   float: left;
+  vertical-align: middle;
 }
 div.List .singleContact .avatarPlaceholder .avatar {
-  height: 70px;
+  height: 80px;
+  margin-top: 5px;
 }
 div.List .singleContact .delButton {
   position: absolute;
@@ -52,6 +56,10 @@ div.List .singleContact .delButton {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-family: Roboto;
+}
+div.List .singleContact .singleString {
+  font-family: Alegreya;
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i");
 body {

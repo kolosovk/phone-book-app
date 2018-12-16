@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya:400,400i');
+
 div.List
     .formToNew,
     .formToSearch
@@ -25,12 +27,15 @@ div.List
     .singleContact
         border: 1px solid green
         list-style none
-        position relative
+        position relative        
+        overflow hidden
         .avatarPlaceholder
             position relative
             float left
+            vertical-align: middle
             .avatar
-                height 70px
+                height 80px
+                margin-top 5px
         .delButton
             position: absolute
             height 30px
@@ -42,5 +47,7 @@ div.List
             background-color: transparent
             border none 
             cursor pointer
-
+            font-family: Roboto
+        .singleString
+            font-family: Alegreya
             

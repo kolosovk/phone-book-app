@@ -108,12 +108,24 @@ class List extends Component {
         {this.props.contacts.map(id => (
           <ul className="singleContact" key={id.phone}>
             <li className="avatarPlaceholder">
-              <img src={id.photo} alt="contact avatar" className="avatar" />
+              <img
+                src={`${id.photo ? id.photo : "http://i.pravatar.cc/300"}`}
+                alt="contact avatar"
+                className="avatar"
+              />
             </li>
-            <li>Phone number: {id.phone}</li>
-            <li>Name: {id.name}</li>
-            <li>Company: {id.company}</li>
-            <li>E-mail: {id.email}</li>
+            <li className="singleString">
+              <em>Phone number:</em> {id.phone}
+            </li>
+            <li className="singleString">
+              <em>Name:</em> {id.name}
+            </li>
+            <li className="singleString">
+              <em>Company:</em> {id.company}
+            </li>
+            <li className="singleString">
+              <em>E-mail:</em> {id.email}
+            </li>
             <button
               className="delButton"
               onClick={() => this.delContact(id.phone)}
