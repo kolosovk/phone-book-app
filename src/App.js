@@ -3,30 +3,32 @@ import Modal from "./components/modal";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import allReducers from "./reducers";
+import List from "./containers/list.js";
 
 const store = createStore(allReducers);
 
 class App extends Component {
-  state = {
-    showModal: false
-  };
+  // state = {
+  //   showModal: false
+  // };
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-    console.log(this.state.showModal);
-  };
+  // toggleModal = () => {
+  //   this.setState({ showModal: !this.state.showModal });
+  //   console.log(this.state.showModal);
+  // };
 
   render() {
     return (
       <Provider store={store}>
         <div className="App">
-          <button className="addContactModal" onClick={this.toggleModal}>
+          {/* <button className="addContactModal" onClick={this.toggleModal}>
             Add new contact
-          </button>
-          <Modal
+          </button> */}
+          <List />
+          {/* <Modal
             toggleModal={this.toggleModal}
             showModal={this.state.showModal}
-          />
+          /> */}
         </div>
       </Provider>
     );
