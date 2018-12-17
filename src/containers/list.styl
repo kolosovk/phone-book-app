@@ -2,7 +2,7 @@
 
 div.List
     .addContact
-        display: flex
+        display: block
         outline none
         border 0
         border-radius 10px
@@ -12,13 +12,17 @@ div.List
         cursor pointer
         margin 0 auto
         width: 50%
+        transition: .8s
         &.close
             display none
+            transition: .8s
     .formToNew
         display: none
+        transition: .8s
         &.open
             display flex
             flex-direction: column
+            transition: .8s
         .formToNewInput
             margin 10px auto
             width: 50%

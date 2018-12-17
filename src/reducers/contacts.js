@@ -1,23 +1,9 @@
 const initialState = [
   {
-    phone: 1,
-    name: "Vasya",
-    company: "ZP",
+    phone: 12345698,
+    name: "Vasiliy",
+    company: "Test Company",
     email: "ssdasd@gmail.com",
-    photo: ""
-  },
-  {
-    phone: 2,
-    name: "Kolya",
-    company: "Lvov",
-    email: "asdwq3@gmail.com",
-    photo: ""
-  },
-  {
-    phone: 3,
-    name: "Petya",
-    company: "Kiev",
-    email: "jtyynn@gmail.com",
     photo: ""
   }
 ];

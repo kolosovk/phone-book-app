@@ -36,6 +36,10 @@ class List extends Component {
     this.props.onDeleteContact(id);
   };
 
+  sendForm = e => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="List">
@@ -45,14 +49,18 @@ class List extends Component {
         >
           Click to add new contact
         </button>
-        <div className={`formToNew ${this.state.showMenu ? "open" : ""}`}>
+        <form
+          className={`formToNew ${this.state.showMenu ? "open" : ""}`}
+          onSubmit={this.sendForm}
+        >
           <input
-            type="text"
+            type="tel"
             ref={input => {
               this.phoneInput = input;
             }}
             className="formToNewInput"
             placeholder="Phone number"
+            name="Phone_number"
           />
           <input
             type="text"
@@ -61,6 +69,7 @@ class List extends Component {
             }}
             className="formToNewInput"
             placeholder="Name"
+            name="Name"
           />
           <input
             type="text"
@@ -71,7 +80,7 @@ class List extends Component {
             placeholder="Company"
           />
           <input
-            type="text"
+            type="email"
             ref={input => {
               this.emailInput = input;
             }}
@@ -92,7 +101,7 @@ class List extends Component {
           >
             Add new contact
           </button>
-        </div>
+        </form>
         <div className="formToSearch">
           <input
             type="text"
@@ -100,7 +109,7 @@ class List extends Component {
             ref={input => {
               this.searchInput = input;
             }}
-            placeholder="Search"
+            placeholder="Search by name"
           />
           <button
             onClick={this.findContact.bind(this)}

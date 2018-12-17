@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya:400,400i");
 div.List .addContact {
-  display: flex;
+  display: block;
   outline: none;
   border: 0;
   border-radius: 10px;
@@ -10,16 +10,20 @@ div.List .addContact {
   cursor: pointer;
   margin: 0 auto;
   width: 50%;
+  transition: 0.8s;
 }
 div.List .addContact.close {
   display: none;
+  transition: 0.8s;
 }
 div.List .formToNew {
   display: none;
+  transition: 0.8s;
 }
 div.List .formToNew.open {
   display: flex;
   flex-direction: column;
+  transition: 0.8s;
 }
 div.List .formToNew .formToNewInput {
   margin: 10px auto;
