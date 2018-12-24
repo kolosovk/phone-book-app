@@ -36,6 +36,28 @@ class List extends Component {
     this.props.onDeleteContact(id);
   };
 
+  changeContact = id => {
+    let ind = this.props.contacts.indexOf(id);
+    console.log(ind);
+
+    let phone = document.querySelector(`#${"tel" + id.phone}`);
+    let name = document.querySelector(`#${id.name}`);
+    // let company = document.querySelector(`#${id.company}`);
+    let email = document.querySelector(`#${id.email.substring(0, 3)}`);
+    // console.log(company.value);
+    // let photo = document.querySelector(`${"photo" + Math.random()}`);
+    this.props.onChangeContact([
+      { ind },
+      {
+        phone: phone.value,
+        name: name.value,
+        company: "",
+        email: email.value,
+        photo: ""
+      }
+    ]);
+  };
+
   sendForm = e => {
     e.preventDefault();
   };
@@ -145,6 +167,28 @@ class List extends Component {
             >
               Delete this contact
             </button>
+            <input
+              type="tel"
+              id={`${"tel" + id.phone}`}
+              placeholder="Phone number"
+            />
+            <input type="text" id={id.name} placeholder="Name" />
+            <input
+              type="text"
+              id={id.company.replace(/\s/g, "")}
+              placeholder="Company"
+            />
+            <input
+              type="text"
+              id={id.email.substring(0, 3)}
+              placeholder="E-mail"
+            />
+            <input
+              type="text"
+              id={`${"photo" + Math.random()}`}
+              placeholder="URL for photo"
+            />
+            <button onClick={() => this.changeContact(id)}>Change</button>
           </ul>
         ))}
       </div>
@@ -167,6 +211,9 @@ export default connect(
     },
     onDeleteContact: contact => {
       dispatch({ type: "DELETE_CONTACT", payload: contact });
+    },
+    onChangeContact: contact => {
+      dispatch({ type: "CHANGE_CONTACT", payload: contact });
     }
   })
 )(List);
