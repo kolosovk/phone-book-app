@@ -85,7 +85,44 @@ div.List
             border none 
             cursor pointer
             font-family: Roboto
+        .editButton
+            position: absolute
+            height 30px
+            bottom 0
+            right 0
+            text-transform: uppercase
+            color: #ba0000
+            font-weight: bold
+            background-color: transparent
+            border none 
+            cursor pointer
+            font-family: Roboto
+            &.close
+                display none
+                transition: .8s
         .singleString
             font-family: Alegreya
-    
+    .formToEdit
+        display: none
+        transition: .8s
+        &.open
+            display flex
+            flex-direction: column
+            transition: .8s
+        .formToNewInput
+            margin 10px auto
+            width: 50%
+            border-radius: 20px
+            padding: 10px
+            outline: none
+        .formToNewButton
+            outline none
+            border 0
+            border-radius 10px
+            padding 5px 10px
+            font-size 20px
+            text-transform: uppercase
+            cursor pointer
+            margin 10px auto
+            width: 50%
     

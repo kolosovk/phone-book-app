@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 
 class List extends Component {
   state = {
-    showMenu: false
+    showMenu: false,
+    showEdit: -1
   };
 
   addContact() {
@@ -24,6 +25,14 @@ class List extends Component {
 
   toggleMenu = () => {
     this.setState({ showMenu: !this.state.showMenu });
+  };
+
+  toggleEdit = id => {
+    let ind = this.props.contacts.indexOf(id);
+    console.log(ind);
+    this.setState({ showEdit: this.props.contacts.indexOf(id) });
+
+    // this.setState({ showEdit: !this.state.showEdit });
   };
 
   findContact() {
@@ -56,6 +65,7 @@ class List extends Component {
         photo: ""
       }
     ]);
+    this.setState({ showEdit: !this.state.showEdit });
   };
 
   sendForm = e => {
@@ -167,28 +177,47 @@ class List extends Component {
             >
               Delete this contact
             </button>
-            <input
-              type="tel"
-              id={`${"tel" + id.phone}`}
-              placeholder="Phone number"
-            />
-            <input type="text" id={id.name} placeholder="Name" />
-            <input
-              type="text"
-              id={id.company.replace(/\s/g, "")}
-              placeholder="Company"
-            />
-            <input
-              type="text"
-              id={id.email.substring(0, 3)}
-              placeholder="E-mail"
-            />
-            <input
-              type="text"
-              id={`${"photo" + Math.random()}`}
-              placeholder="URL for photo"
-            />
-            <button onClick={() => this.changeContact(id)}>Change</button>
+            <button
+              className={`editButton ${
+                this.state.showEdit === this.props.contacts.indexOf(id)
+                  ? "close"
+                  : ""
+              }`}
+              onClick={() => this.toggleEdit(id)}
+            >
+              Edit this contact
+            </button>
+            <form
+              onSubmit={this.sendForm}
+              className={`formToEdit ${
+                this.state.showEdit === this.props.contacts.indexOf(id)
+                  ? "open"
+                  : ""
+              }`}
+            >
+              <input
+                type="tel"
+                id={`${"tel" + id.phone}`}
+                placeholder="Phone number"
+              />
+              <input type="text" id={id.name} placeholder="Name" />
+              <input
+                type="text"
+                id={id.company.replace(/\s/g, "")}
+                placeholder="Company"
+              />
+              <input
+                type="text"
+                id={id.email.substring(0, 3)}
+                placeholder="E-mail"
+              />
+              <input
+                type="text"
+                id={`${"photo" + Math.random()}`}
+                placeholder="URL for photo"
+              />
+              <button onClick={() => this.changeContact(id)}>Change</button>
+            </form>
           </ul>
         ))}
       </div>
