@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FormErrors } from "../components/FormErrors";
 
 class List extends Component {
   state = {
     showMenu: false,
-    showEdit: -1
+    showEdit: -1,
+    name: "",
+    company: "",
+    formErrors: { name: "", company: "" },
+    nameValid: false,
+    companyValid: false,
+    formValid: false
   };
 
   addContact() {
@@ -72,6 +79,48 @@ class List extends Component {
     e.preventDefault();
   };
 
+  handleContactInput = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value }, () => {
+      this.validateField(name, value);
+    });
+  };
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let nameValid = this.state.nameValid;
+    let companyValid = this.state.companyValid;
+
+    switch (fieldName) {
+      case "name":
+        nameValid = value.length > 0;
+        fieldValidationErrors.name = nameValid
+          ? ""
+          : " is empty, please write something";
+        break;
+      case "company":
+        companyValid = value.length >= 3;
+        fieldValidationErrors.company = companyValid ? "" : " is too short";
+        break;
+      default:
+        break;
+    }
+    this.setState(
+      {
+        formErrors: fieldValidationErrors,
+        nameValid: nameValid,
+        companyValid: companyValid
+      },
+      this.validateForm
+    );
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: this.state.nameValid && this.state.companyValid
+    });
+  }
   render() {
     return (
       <div className="List">
@@ -99,17 +148,20 @@ class List extends Component {
             ref={input => {
               this.nameInput = input;
             }}
+            onChange={this.handleContactInput}
             className="formToNewInput"
             placeholder="Name"
-            name="Name"
+            name="name"
           />
           <input
             type="text"
             ref={input => {
               this.companyInput = input;
             }}
+            onChange={this.handleContactInput}
             className="formToNewInput"
             placeholder="Company"
+            name="company"
           />
           <input
             type="email"
@@ -127,8 +179,10 @@ class List extends Component {
             className="formToNewInput"
             placeholder="Url for photo"
           />
+          <FormErrors formErrors={this.state.formErrors} />
           <button
             className="formToNewButton"
+            disabled={!this.state.formValid}
             onClick={this.addContact.bind(this)}
           >
             Add new contact
