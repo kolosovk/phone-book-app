@@ -252,27 +252,41 @@ class List extends Component {
               }`}
             >
               <input
+                className="formToEditInput"
                 type="tel"
                 id={`${"tel" + id.phone}`}
                 placeholder="Phone number"
               />
-              <input type="text" id={id.name} placeholder="Name" />
               <input
+                className="formToEditInput"
+                type="text"
+                id={id.name}
+                placeholder="Name"
+              />
+              <input
+                className="formToEditInput"
                 type="text"
                 id={id.company.replace(/\s/g, "")}
                 placeholder="Company"
               />
               <input
+                className="formToEditInput"
                 type="text"
                 id={id.email.substring(0, 3)}
                 placeholder="E-mail"
               />
               <input
+                className="formToEditInput"
                 type="text"
                 id={`${"photo" + Math.random()}`}
                 placeholder="URL for photo"
               />
-              <button onClick={() => this.changeContact(id)}>Change</button>
+              <button
+                className="formToEditButton"
+                onClick={() => this.changeContact(id)}
+              >
+                Change
+              </button>
             </form>
           </ul>
         ))}

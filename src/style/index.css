@@ -128,15 +128,16 @@ div.List .formToEdit.open {
   display: flex;
   flex-direction: column;
   transition: 0.8s;
+  align-items: left;
 }
-div.List .formToEdit .formToNewInput {
-  margin: 10px auto;
+div.List .formToEdit .formToEditInput {
+  margin: 10px 0;
   width: 50%;
   border-radius: 20px;
   padding: 10px;
   outline: none;
 }
-div.List .formToEdit .formToNewButton {
+div.List .formToEdit .formToEditButton {
   outline: none;
   border: 0;
   border-radius: 10px;
@@ -144,7 +145,7 @@ div.List .formToEdit .formToNewButton {
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 10px;
   width: 50%;
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i");
