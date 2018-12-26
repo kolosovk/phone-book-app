@@ -254,14 +254,18 @@ class List extends Component {
               <input
                 className="formToEditInput"
                 type="tel"
+                name="phone"
                 id={`${"tel" + id.phone}`}
                 placeholder="Phone number"
+                onChange={this.handleContactInput}
               />
               <input
                 className="formToEditInput"
+                name="name"
                 type="text"
                 id={id.name}
                 placeholder="Name"
+                onChange={this.handleContactInput}
               />
               <input
                 className="formToEditInput"
@@ -281,9 +285,11 @@ class List extends Component {
                 id={`${"photo" + Math.random()}`}
                 placeholder="URL for photo"
               />
+              <FormErrors formErrors={this.state.formErrors} />
               <button
                 className="formToEditButton"
                 onClick={() => this.changeContact(id)}
+                disabled={!this.state.formValid}
               >
                 Change
               </button>

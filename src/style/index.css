@@ -130,6 +130,10 @@ div.List .formToEdit.open {
   transition: 0.8s;
   align-items: left;
 }
+div.List .formToEdit .formErrors {
+  color: #ba0000;
+  font-family: Roboto;
+}
 div.List .formToEdit .formToEditInput {
   margin: 10px 0;
   width: 50%;
