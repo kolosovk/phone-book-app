@@ -2,28 +2,28 @@ const initialState = [
   {
     phone: 12345698,
     name: "Vasiliy",
-    company: "Test Company",
+    company: "Company",
     email: "ssdasd@gmail.com",
     photo: ""
   },
   {
     phone: 66362624,
     name: "Ivan",
-    company: "Test Company2",
+    company: "Company2",
     email: "asdsad@gmail.com",
     photo: ""
   },
   {
     phone: 7457878,
     name: "Denis",
-    company: "Test Company3",
+    company: "Company3",
     email: "werwerewr@gmail.com",
     photo: ""
   },
   {
     phone: 3243113,
     name: "Pavel",
-    company: "Test Company4",
+    company: "Company4",
     email: "fgasff@gmail.com",
     photo: ""
   }

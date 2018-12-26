@@ -58,7 +58,7 @@ class List extends Component {
 
     let phone = document.querySelector(`#${"tel" + id.phone}`);
     let name = document.querySelector(`#${id.name}`);
-    // let company = document.querySelector(`#${id.company}`);
+    let company = document.querySelector(`#${id.company}`);
     let email = document.querySelector(`#${id.email.substring(0, 3)}`);
     // console.log(company.value);
     // let photo = document.querySelector(`${"photo" + Math.random()}`);
@@ -67,7 +67,7 @@ class List extends Component {
       {
         phone: phone.value,
         name: name.value,
-        company: "",
+        company: company.value,
         email: email.value,
         photo: ""
       }
@@ -270,7 +270,7 @@ class List extends Component {
               <input
                 className="formToEditInput"
                 type="text"
-                id={id.company.replace(/\s/g, "")}
+                id={id.company}
                 placeholder="Company"
               />
               <input
