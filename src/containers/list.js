@@ -7,10 +7,10 @@ class List extends Component {
     showMenu: false,
     showEdit: -1,
     name: "",
-    company: "",
-    formErrors: { name: "", company: "" },
+    phone: "",
+    formErrors: { name: "", phone: "" },
     nameValid: false,
-    companyValid: false,
+    phoneValid: false,
     formValid: false
   };
 
@@ -90,7 +90,7 @@ class List extends Component {
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let nameValid = this.state.nameValid;
-    let companyValid = this.state.companyValid;
+    let phoneValid = this.state.phoneValid;
 
     switch (fieldName) {
       case "name":
@@ -99,9 +99,11 @@ class List extends Component {
           ? ""
           : " is empty, please write something";
         break;
-      case "company":
-        companyValid = value.length >= 3;
-        fieldValidationErrors.company = companyValid ? "" : " is too short";
+      case "phone":
+        phoneValid = value.match(/^[0-9]+$/);
+        fieldValidationErrors.phone = phoneValid
+          ? ""
+          : " must contain only numbers";
         break;
       default:
         break;
@@ -110,7 +112,7 @@ class List extends Component {
       {
         formErrors: fieldValidationErrors,
         nameValid: nameValid,
-        companyValid: companyValid
+        phoneValid: phoneValid
       },
       this.validateForm
     );
@@ -118,7 +120,7 @@ class List extends Component {
 
   validateForm() {
     this.setState({
-      formValid: this.state.nameValid && this.state.companyValid
+      formValid: this.state.nameValid && this.state.phoneValid
     });
   }
   render() {
@@ -141,7 +143,8 @@ class List extends Component {
             }}
             className="formToNewInput"
             placeholder="Phone number"
-            name="Phone_number"
+            name="phone"
+            onChange={this.handleContactInput}
           />
           <input
             type="text"
@@ -158,7 +161,6 @@ class List extends Component {
             ref={input => {
               this.companyInput = input;
             }}
-            onChange={this.handleContactInput}
             className="formToNewInput"
             placeholder="Company"
             name="company"
@@ -279,12 +281,16 @@ class List extends Component {
   }
 }
 
-export default connect(
-  state => ({
+function mapStateToProps(state) {
+  return {
     contacts: state.contacts.filter(contact =>
       contact.name.includes(state.filterContacts)
     )
-  }),
+  };
+}
+
+export default connect(
+  mapStateToProps,
   dispatch => ({
     onAddContact: contact => {
       dispatch({ type: "ADD_NEW_CONTACT", payload: contact });

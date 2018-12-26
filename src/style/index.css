@@ -25,6 +25,10 @@ div.List .formToNew.open {
   flex-direction: column;
   transition: 0.8s;
 }
+div.List .formToNew .formErrors {
+  color: #ba0000;
+  font-family: Roboto;
+}
 div.List .formToNew .formToNewInput {
   margin: 10px auto;
   width: 50%;

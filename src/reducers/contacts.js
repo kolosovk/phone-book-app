@@ -26,27 +26,6 @@ const initialState = [
     company: "Test Company4",
     email: "fgasff@gmail.com",
     photo: ""
-  },
-  {
-    phone: 1234565764574598,
-    name: "Roman",
-    company: "Test Company5",
-    email: "sdfefwef@gmail.com",
-    photo: ""
-  },
-  {
-    phone: 67576575756,
-    name: "Grigoriy",
-    company: "Test Company6",
-    email: "dfwefewf@gmail.com",
-    photo: ""
-  },
-  {
-    phone: 34525252,
-    name: "Nikita",
-    company: "Test Company7",
-    email: "erewrwee@gmail.com",
-    photo: ""
   }
 ];
 
